@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
 using namespace std;
 
 int location()
@@ -19,8 +20,10 @@ int location()
 
 void nursery(int n)
 {
-    int i;
+    int i,plant,qty1=0,qty2=0;
+    int price1=0,price2=0;
     int ch = n;
+    char choice;
     char str[50];
     string line;
     switch(ch)
@@ -39,6 +42,49 @@ void nursery(int n)
                 cout << line << endl;
             }
             file.close();
+            cout << "Do you want to buy?(y/n): ";
+            cin >> choice;
+            while(1)
+            {
+                if(choice=='y')
+                {
+                    cout << "Please choose your plants: ";
+                    cin >> plant;
+                    switch(plant)
+                    {
+                    case 1:
+                        cout << "Enter quantity: ";
+                        cin >> qty1;
+                        price1 = 120*qty1;
+                        break;
+                    case 2:
+                        cout << "Enter quantity: ";
+                        cin >> qty1;
+                        price2 = 120*qty1;
+                        break;
+                    }
+                    cout << "Do you want to add another plant?(y/n)";
+                    cin >> choice;
+                    if(choice=='y')
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        system("cls");
+                        cout << "\tYou have ordered:\n";
+                        cout << "____________________________________________";
+                        cout << "\n";
+                        cout << "Rose\t\t" << qty1 << "\t" << price1 << endl;
+                        cout << "Mary Gold\t" << qty2 << "\t" << price2 << endl;
+                        exit(1);
+                    }
+                }
+                else
+                {
+                    exit(1);
+                }
+            }
         }
         break;
     case 2:
