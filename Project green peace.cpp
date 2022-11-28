@@ -18,10 +18,19 @@ int location()
     return n;
 }
 
+int count_digit(long long number) {
+   int count = 0;
+   while(number != 0) {
+      number = number / 10;
+      count++;
+   }
+   return count;
+}
+
 void nursery(int n)
 {
-    int i,plant,qty1=0,qty2=0;
-    int price1=0,price2=0;
+    int i,plant,qty1=0,qty2=0,qty3=0,qty4=0;
+    int price1=0,price2=0,price3=0,price4=0;
     int ch = n;
     char choice;
     char str[50];
@@ -59,8 +68,18 @@ void nursery(int n)
                         break;
                     case 2:
                         cout << "Enter quantity: ";
-                        cin >> qty1;
-                        price2 = 120*qty1;
+                        cin >> qty2;
+                        price2 = 60*qty2;
+                        break;
+                    case 3:
+                        cout << "Enter quantity: ";
+                        cin >> qty3;
+                        price3 = 85*qty3;
+                        break;
+                    case 4:
+                        cout << "Enter quantity: ";
+                        cin >> qty4;
+                        price4 = 90*qty4;
                         break;
                     }
                     cout << "Do you want to add another plant?(y/n)";
@@ -72,11 +91,16 @@ void nursery(int n)
                     else
                     {
                         system("cls");
+                        int total = price1+price2+price3+price4;
                         cout << "\tYou have ordered:\n";
                         cout << "____________________________________________";
                         cout << "\n";
                         cout << "Rose\t\t" << qty1 << "\t" << price1 << endl;
                         cout << "Mary Gold\t" << qty2 << "\t" << price2 << endl;
+                        cout << "Tulip\t\t" << qty3 << "\t" << price3 << endl;
+                        cout << "Sunflower\t" << qty4 << "\t" << price4 << endl;
+                        cout << "____________________________________________"<< endl;
+                        cout << "Total:\t\t\t" << total << endl;
                         exit(1);
                     }
                 }
@@ -142,8 +166,14 @@ int main()
     printf("\n\n");
     printf("\t\t\t1. Name: ");
     fgets(name, 20, stdin);
+    label:
     printf("\t\t\t2. Contact no.: ");
     scanf("%lld",&num);
+    if(count_digit(num)!=11)
+    {
+        cout << "\t\t\tPlease enter 11 digits!!!" << endl;
+        goto label;
+    }
     n=location();
     printf("%d", n);
     system("cls");
