@@ -1,2 +1,5 @@
+Name		Price
 1. Dahlia	90TK
-2. 
+2. Daisy	150tk
+3. Sunflower	180tk
+4. Orchid	80tk

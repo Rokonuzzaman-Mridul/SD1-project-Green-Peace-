@@ -1,0 +1,6 @@
+Name		Price
+1. Lemon	200tk
+2. Coconut	400tk
+3. Cucumber	30tk
+4. Meri Gold	70tk
+5. Rose		150tk
