@@ -3684,6 +3684,7 @@ void forgot()
             if(sID==suserID)
             {
                 count=1;
+                break;
             }
         }
         f2.close();
@@ -3705,8 +3706,13 @@ void forgot()
             main();
         }
     default:
-        cout << "Wrong choice! Please try again" << endl;
-        forgot();
+        {
+            cout << "Wrong choice! Please try again" << endl;
+            cin.get();
+            cin.get();
+            forgot();
+        }
+
     }
 }
 
